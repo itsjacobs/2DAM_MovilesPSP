@@ -114,7 +114,7 @@ object RepositorioSeries {
         )
     }
 
-    fun getSerie(id:Int) = series[id]
+    fun getSerie(titulo : String) = series.find { serie -> serie.textoTitulo == titulo } ?: Serie()
     fun save(serie: Serie) = series.add(serie)
     fun size() = series.size
     fun delete(serie: Serie)= series.remove(serie)

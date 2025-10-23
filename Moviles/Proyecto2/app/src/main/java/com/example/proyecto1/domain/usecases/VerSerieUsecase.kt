@@ -5,5 +5,5 @@ import com.example.proyecto1.domain.modelo.Serie
 
 class VerSerieUsecase {
 
-    operator fun invoke(id:Int): Serie = RepositorioSeries.getSerie(id);
+    operator fun invoke(titulo : String): Serie = RepositorioSeries.getSerie(titulo);
 }

@@ -17,69 +17,64 @@ class MainViewModel : ViewModel() {
 
 
     init {
-        val totalSeries = SizeSerieUsecase().invoke()
         _state.value = MainState(
-            serie = Serie(),
-            Indice = 0,
-            numeroPaginas = totalSeries
-        )
+            serie = Serie())
     }
 
-    fun Botones(){
-        val indice = _state.value?.Indice ?: 0
-        val total = _state.value?.numeroPaginas ?: 0
-
-        if (indice <= 0) {
-            _state.value = _state.value?.copy(botonSiguiente = true, botonAnterior = false)
-            return
-        }
-        if (indice >= total) {
-            _state.value = _state.value?.copy(botonSiguiente = false, botonAnterior = true)
-            return
-        }
-        _state.value = _state.value?.copy(botonSiguiente = true, botonAnterior=true)
-    }
+//    fun Botones(){
+//        val indice = _state.value?.Indice ?: 0
+//        val total = _state.value?.numeroPaginas ?: 0
+//
+//        if (indice <= 0) {
+//            _state.value = _state.value?.copy(botonSiguiente = true, botonAnterior = false)
+//            return
+//        }
+//        if (indice >= total) {
+//            _state.value = _state.value?.copy(botonSiguiente = false, botonAnterior = true)
+//            return
+//        }
+//        _state.value = _state.value?.copy(botonSiguiente = true, botonAnterior=true)
+//    }
     fun clickGuardarSerie(serie: Serie){
-        val paginasActuales = _state.value?.numeroPaginas ?: 0
         if (AddSerieUsecase().invoke(serie)){
-           _state.value = state.value?.copy(serie, mensaje = "Serie añadida correctamente", numeroPaginas = paginasActuales + 1 )
+           _state.value = state.value?.copy(serie, mensaje = "Serie añadida correctamente")
         }else{
            _state.value = state.value?.copy(mensaje = "No se ha podido añadir la serie")
        }
-        Botones()
+
     }
 
     fun limpiarMensaje() {
         _state.value = state.value?.copy(mensaje = null)
     }
-    fun pasarPagina(){
-        val indice = _state.value?.Indice ?: 0
-        val serie = VerSerieUsecase().invoke(indice)
+//    fun pasarPagina(){
+//        val indice = _state.value?.Indice ?: 0
+//        val serie = VerSerieUsecase().invoke(indice)
+//
+//        _state.value = state.value?.copy(serie = serie, Indice = indice + 1)
+//        Botones()
+//    }
 
-        _state.value = state.value?.copy(serie = serie, Indice = indice + 1)
-        Botones()
-    }
-
-    fun volverPagina() {
-        val indiceActual = _state.value?.Indice ?: 0
-        val nuevoIndice = indiceActual - 1
-
-        if (nuevoIndice >= 0) {
-            if (nuevoIndice == 0) {
-                _state.value = _state.value?.copy(
-                    serie = Serie(),
-                    Indice = 0,
-                )
-            } else {
-                val serieAnterior = VerSerieUsecase().invoke(nuevoIndice - 1)
-                _state.value = _state.value?.copy(
-                    serie = serieAnterior,
-                    Indice = nuevoIndice,
-                )
-            }
-        }
-        Botones()
-    }
+//    fun volverPagina() {
+//        val indiceActual = _state.value?.Indice ?: 0
+//        val nuevoIndice = indiceActual - 1
+//
+//        if (nuevoIndice >= 0) {
+//            if (nuevoIndice == 0) {
+//                _state.value = _state.value?.copy(
+//                    serie = Serie(),
+//                    Indice = 0,
+//                )
+//            } else {
+//                val serieAnterior = VerSerieUsecase().invoke(nuevoIndice - 1)
+//                _state.value = _state.value?.copy(
+//                    serie = serieAnterior,
+//                    Indice = nuevoIndice,
+//                )
+//            }
+//        }
+//        Botones()
+//    }
     fun clickBorrar(serie: Serie) {
         if (DeleteSerieUsecase().invoke(serie)) {
             val totalSeriesAhora = SizeSerieUsecase().invoke()
