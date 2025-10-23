@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">proyecto 1</string>
+    <string name="anadir_serie">Añadir Serie</string>
+    <string name="titulo_de_la_serie">Título de la serie</string>
+    <string name="genero">Género</string>
+    <string name="n_temporadas">Nº Temporadas</string>
+    <string name="ano_de_estreno">Año de estreno</string>
+    <string name="Ultima_emision">Última emisión</string>
+    <string name="en_emision">En emisión</string>
+    <string name="finalizada">Finalizada</string>
+    <string name="proximamente">Próximamente</string>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="borrar">Borrar</string>
+    <string name="guardar">Guardar</string>
+    <string name="aceptar_t_rminos_y_condiciones">Aceptar términos y condiciones</string>
+    <string name="anterior">Anterior</string>
+    <string name="numPaginas">Página 1/1</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="listado_de_series">Listado de Series</string>
+    <string name="volver">volver</string>
+
+
+</resources>

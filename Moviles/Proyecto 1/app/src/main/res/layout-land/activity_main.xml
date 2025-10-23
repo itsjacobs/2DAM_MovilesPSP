@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.pantallamain.MainActivity">
+
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineIzq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineDer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.125" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.375" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.625" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.875" />
+
+    
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:gravity="center"
+        android:text="@string/anadir_serie"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.14286"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="1" />
+
+    
+    <EditText
+        android:id="@+id/tituloSerie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/titulo_de_la_serie"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineName"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineTitle"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDer" />
+
+    
+    <EditText
+        android:id="@+id/genero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/genero"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineSurname"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineName"
+        app:layout_constraintWidth_percent="0.45" />
+
+    
+    <EditText
+        android:id="@+id/temporadas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/n_temporadas"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineSurname"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDer"
+        app:layout_constraintStart_toEndOf="@+id/genero"
+        app:layout_constraintTop_toTopOf="@+id/guidelineName"
+        app:layout_constraintWidth_percent="0.45" />
+
+    
+    <EditText
+        android:id="@+id/anioEstreno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/ano_de_estreno"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineEmail"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSurname"
+        app:layout_constraintWidth_percent="0.45" />
+
+    
+    <EditText
+        android:id="@+id/ultimaEmision"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/Ultima_emision"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineEmail"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDer"
+        app:layout_constraintStart_toEndOf="@+id/anioEstreno"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSurname"
+        app:layout_constraintWidth_percent="0.45" />
+    
+    <RadioGroup
+        android:id="@+id/estadoSerie"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineSex"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDer"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineEmail">
+
+        <RadioButton
+            android:id="@+id/enEmision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/en_emision" />
+
+        <RadioButton
+            android:id="@+id/finalizada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/finalizada" />
+
+        <RadioButton
+            android:id="@+id/proximamente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proximamente" />
+    </RadioGroup>
+
+    
+    <EditText
+        android:id="@+id/sinopsis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start|top"
+        android:hint="@string/sinopsis"
+        android:inputType="textMultiLine"
+        android:lines="3"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineComments"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineDer"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineSex" />
+
+    
+
+    <Button
+        android:id="@+id/limpiar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="@string/limpiar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@+id/guidelineComments"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/actualizar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="@string/actualizar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintStart_toEndOf="@+id/limpiar"
+        app:layout_constraintTop_toTopOf="@+id/guidelineComments"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/borrar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="@string/borrar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintStart_toEndOf="@+id/actualizar"
+        app:layout_constraintTop_toTopOf="@+id/guidelineComments"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/guardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="@string/guardar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineBottom"
+        app:layout_constraintStart_toEndOf="@+id/borrar"
+        app:layout_constraintTop_toTopOf="@+id/guidelineComments"
+        app:layout_constraintWidth_percent="0.25" />
+
+    
+    <CheckBox
+        android:id="@+id/terminos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aceptar_t_rminos_y_condiciones"
+        app:layout_constraintBottom_toTopOf="@+id/btnAnterior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineBottom" />
+
+    
+    <Button
+        android:id="@+id/btnAnterior"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/anterior"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineIzq"
+        app:layout_constraintWidth_percent="0.3" />
+
+    <TextView
+        android:id="@+id/numPaginas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/numPaginas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnAnterior"
+        app:layout_constraintTop_toBottomOf="@+id/terminos"
+        app:layout_constraintVertical_bias="0.578"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/siguiente"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numPaginas"
+        app:layout_constraintWidth_percent="0.3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
