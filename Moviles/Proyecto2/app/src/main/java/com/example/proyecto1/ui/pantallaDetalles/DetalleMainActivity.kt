@@ -14,6 +14,7 @@ import com.example.proyecto1.domain.modelo.Tipo
 import com.example.proyecto1.domain.usecases.ActualizarSerieUsecase
 import com.example.proyecto1.domain.usecases.DeleteSerieUsecase
 import com.example.proyecto1.domain.usecases.GetSeriesUseCase
+import com.example.proyecto1.ui.commons.Constantes
 import com.example.proyecto1.ui.commons.UIEvent
 import com.example.proyecto1.ui.listadoSerie.ListadoSeriesActivity
 import com.google.android.material.snackbar.Snackbar
@@ -36,7 +37,7 @@ class DetalleMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         intent.extras?.let {
-            val titulo = intent.getStringExtra("Titulo") ?: ""
+            val titulo = intent.getStringExtra(Constantes.TITULO) ?: ""
             viewModel.getSeries(titulo)
         }
 
@@ -57,6 +58,12 @@ class DetalleMainActivity : AppCompatActivity() {
                         is UIEvent.showSnackbar -> {
                             Snackbar.make(binding.root, event.message, Snackbar.LENGTH_LONG).show()
                         }
+
+                        is UIEvent.Navigate ->
+                            {
+                                val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)
+                                startActivity(intent)
+                            }
                     }
                     viewModel.limpiarEvento()
                 }
@@ -86,8 +93,6 @@ class DetalleMainActivity : AppCompatActivity() {
             btnBorrar.setOnClickListener {
                 viewModel.uiState.value?.serie?.let { serie ->
                     viewModel.clickBorrar(serie)
-                    val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)
-                    startActivity(intent)
                 }
             }
             btnActualizar.setOnClickListener {
@@ -118,8 +123,7 @@ class DetalleMainActivity : AppCompatActivity() {
                 )
 
                 viewModel.clickActualizarSerie(serieActualizada)
-                val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)
-                startActivity(intent)
+
             }
             btnVolver.setOnClickListener {
                 val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)

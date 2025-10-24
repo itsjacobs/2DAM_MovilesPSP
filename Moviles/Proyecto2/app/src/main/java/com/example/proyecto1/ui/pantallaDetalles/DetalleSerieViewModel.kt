@@ -8,6 +8,7 @@ import com.example.proyecto1.domain.modelo.Serie
 import com.example.proyecto1.domain.usecases.ActualizarSerieUsecase
 import com.example.proyecto1.domain.usecases.DeleteSerieUsecase
 import com.example.proyecto1.domain.usecases.GetSeriesUseCase
+import com.example.proyecto1.ui.commons.Constantes
 import com.example.proyecto1.ui.commons.UIEvent
 
 class DetalleSerieViewModel (
@@ -24,7 +25,7 @@ class DetalleSerieViewModel (
         val serie = series.find { it.titulo == titulo }
 
         if (serie == null){
-            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar("Error al cargar la serie"))
+            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar(Constantes.ERRORCARGARSERIE))
 
         }else{
             _uiState.value = _uiState.value?.copy(serie = serie)
@@ -36,10 +37,10 @@ class DetalleSerieViewModel (
         if (DeleteSerieUsecase.invoke(serie)) {
             _uiState.value = _uiState.value?.copy(
                 serie = Serie(),
-                event = UIEvent.showSnackbar("Serie borrada correctamente")
+                event = UIEvent.Navigate(Constantes.RUTALISTADO)
             )
         } else {
-            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar("Error al borrar la serie"))
+            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar(Constantes.ERRORBORRARSERIE))
         }
     }
 
@@ -47,10 +48,10 @@ class DetalleSerieViewModel (
         if (ActualizarSerieUsecase.invoke(serie)) {
             _uiState.value = _uiState.value?.copy(
                 serie = serie,
-                event = UIEvent.showSnackbar("Serie " + serie.titulo + " actualizada correctamente")
+                event = UIEvent.Navigate(Constantes.RUTALISTADO)
             )
         } else {
-            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar("Error al actualizar la serie"))
+            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar(Constantes.ERRORACTUALIZARSERIE))
         }
     }
     fun limpiarEvento() {

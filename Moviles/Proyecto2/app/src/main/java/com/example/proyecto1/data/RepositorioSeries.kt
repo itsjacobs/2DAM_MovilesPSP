@@ -113,10 +113,8 @@ object RepositorioSeries {
             )
         )
     }
-
-    fun getSerie(titulo : String) = series.find { serie -> serie.titulo == titulo } ?: Serie()
+    
     fun save(serie: Serie) = series.add(serie)
-    fun size() = series.size
     fun delete(serie: Serie)= series.remove(serie)
     fun update(serieActualizada : Serie) : Boolean{
         val indice = series.indexOfFirst { serieDelaLista -> serieDelaLista.titulo == serieActualizada.titulo }
