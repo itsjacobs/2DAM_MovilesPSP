@@ -36,7 +36,7 @@ class DetalleSerieViewModel (
         if (DeleteSerieUsecase.invoke(serie)) {
             _uiState.value = _uiState.value?.copy(
                 serie = Serie(),
-                event = UIEvent.showSnackbar("Serie borrada correctamente")
+                event = UIEvent.Navigate("listado")
             )
         } else {
             _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar("Error al borrar la serie"))
@@ -47,7 +47,7 @@ class DetalleSerieViewModel (
         if (ActualizarSerieUsecase.invoke(serie)) {
             _uiState.value = _uiState.value?.copy(
                 serie = serie,
-                event = UIEvent.showSnackbar("Serie " + serie.titulo + " actualizada correctamente")
+                event = UIEvent.Navigate("listado")
             )
         } else {
             _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar("Error al actualizar la serie"))

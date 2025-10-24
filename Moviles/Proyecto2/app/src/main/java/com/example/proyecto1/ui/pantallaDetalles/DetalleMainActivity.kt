@@ -57,6 +57,12 @@ class DetalleMainActivity : AppCompatActivity() {
                         is UIEvent.showSnackbar -> {
                             Snackbar.make(binding.root, event.message, Snackbar.LENGTH_LONG).show()
                         }
+
+                        is UIEvent.Navigate ->
+                            {
+                                val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)
+                                startActivity(intent)
+                            }
                     }
                     viewModel.limpiarEvento()
                 }
@@ -86,8 +92,6 @@ class DetalleMainActivity : AppCompatActivity() {
             btnBorrar.setOnClickListener {
                 viewModel.uiState.value?.serie?.let { serie ->
                     viewModel.clickBorrar(serie)
-                    val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)
-                    startActivity(intent)
                 }
             }
             btnActualizar.setOnClickListener {
@@ -118,8 +122,7 @@ class DetalleMainActivity : AppCompatActivity() {
                 )
 
                 viewModel.clickActualizarSerie(serieActualizada)
-                val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)
-                startActivity(intent)
+
             }
             btnVolver.setOnClickListener {
                 val intent = Intent(this@DetalleMainActivity, ListadoSeriesActivity::class.java)

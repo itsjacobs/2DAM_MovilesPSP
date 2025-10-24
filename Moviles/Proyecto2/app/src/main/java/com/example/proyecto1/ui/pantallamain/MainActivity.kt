@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         }
         eventos()
         observer()
-
     }
     private fun observer(){
         viewModel.state.observe(this){
