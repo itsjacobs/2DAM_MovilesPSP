@@ -2,11 +2,9 @@ package com.example.proyecto1.ui.listadoSerie
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,7 +30,7 @@ class ListadoSeriesActivity : ComponentActivity() {
         adapter = SeriesAdapter(
             object : SeriesAdapterActions {
                 override fun onClickItem(serie: Serie) {
-                    irDetalleSerie(serie.textoTitulo)
+                    irDetalleSerie(serie.titulo)
                 }
             }
         )
