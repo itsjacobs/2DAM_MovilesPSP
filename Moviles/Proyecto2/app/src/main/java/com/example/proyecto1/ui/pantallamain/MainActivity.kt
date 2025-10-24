@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     private fun observer(){
         viewModel.state.observe(this){
            state ->
-            binding.tituloSerie.setText(state.serie.textoTitulo)
+            binding.tituloSerie.setText(state.serie.titulo)
             binding.genero.setText(state.serie.textoGenero)
             binding.temporadas.setText(state.serie.numeroTemporadas.toString())
             binding.anioEstreno.setText(state.serie.anoEstreno.toString())

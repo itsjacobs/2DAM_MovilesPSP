@@ -28,7 +28,7 @@ class SeriesAdapter (
 
 class SerieDiffCallback : DiffUtil.ItemCallback<Serie>() {
     override fun areItemsTheSame(oldItem: Serie, newItem: Serie): Boolean {
-        return oldItem.textoTitulo == newItem.textoTitulo && oldItem.numeroTemporadas == newItem.numeroTemporadas
+        return oldItem.titulo == newItem.titulo && oldItem.numeroTemporadas == newItem.numeroTemporadas
     }
 
     override fun areContentsTheSame(oldItem: Serie, newItem: Serie): Boolean {
@@ -42,7 +42,7 @@ class SeriesViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(serie: Serie) {
-        binding.tvTitulo.text = serie.textoTitulo
+        binding.tvTitulo.text = serie.titulo
         binding.numTemporadas.text = "Temporadas: ${serie.numeroTemporadas}"
 
         binding.root.setOnClickListener {

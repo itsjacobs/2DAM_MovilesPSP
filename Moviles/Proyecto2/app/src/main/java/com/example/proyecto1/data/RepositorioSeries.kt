@@ -11,7 +11,7 @@ object RepositorioSeries {
         series.addAll(
             listOf(
                 Serie(
-                    textoTitulo = "Breaking Bad",
+                    titulo = "Breaking Bad",
                     textoGenero = "Crimen / Drama",
                     numeroTemporadas = 5,
                     anoEstreno = 2008,
@@ -21,7 +21,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.Finalizada
                 ),
                 Serie(
-                    textoTitulo = "Stranger Things",
+                    titulo = "Stranger Things",
                     textoGenero = "Ciencia ficción / Suspense",
                     numeroTemporadas = 4,
                     anoEstreno = 2016,
@@ -31,7 +31,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.EnEmision
                 ),
                 Serie(
-                    textoTitulo = "Game of Thrones",
+                    titulo = "Game of Thrones",
                     textoGenero = "Fantasía / Drama",
                     numeroTemporadas = 8,
                     anoEstreno = 2011,
@@ -41,7 +41,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.Finalizada
                 ),
                 Serie(
-                    textoTitulo = "The Crown",
+                    titulo = "The Crown",
                     textoGenero = "Histórica / Drama",
                     numeroTemporadas = 6,
                     anoEstreno = 2016,
@@ -51,7 +51,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.EnEmision
                 ),
                 Serie(
-                    textoTitulo = "The Mandalorian",
+                    titulo = "The Mandalorian",
                     textoGenero = "Aventura / Ciencia ficción",
                     numeroTemporadas = 3,
                     anoEstreno = 2019,
@@ -61,7 +61,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.EnEmision
                 ),
                 Serie(
-                    textoTitulo = "Chernobyl",
+                    titulo = "Chernobyl",
                     textoGenero = "Histórica / Drama",
                     numeroTemporadas = 1,
                     anoEstreno = 2019,
@@ -71,7 +71,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.Finalizada
                 ),
                 Serie(
-                    textoTitulo = "Dark",
+                    titulo = "Dark",
                     textoGenero = "Ciencia ficción / Thriller",
                     numeroTemporadas = 3,
                     anoEstreno = 2017,
@@ -81,7 +81,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.Finalizada
                 ),
                 Serie(
-                    textoTitulo = "The Witcher",
+                    titulo = "The Witcher",
                     textoGenero = "Fantasía / Acción",
                     numeroTemporadas = 2,
                     anoEstreno = 2019,
@@ -91,7 +91,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.EnEmision
                 ),
                 Serie(
-                    textoTitulo = "House of the Dragon",
+                    titulo = "House of the Dragon",
                     textoGenero = "Fantasía / Drama",
                     numeroTemporadas = 2,
                     anoEstreno = 2022,
@@ -101,7 +101,7 @@ object RepositorioSeries {
                     estadoSerie = Tipo.EnEmision
                 ),
                 Serie(
-                    textoTitulo = "Foundation",
+                    titulo = "Foundation",
                     textoGenero = "Ciencia ficción / Épica",
                     numeroTemporadas = 2,
                     anoEstreno = 2021,
@@ -114,12 +114,12 @@ object RepositorioSeries {
         )
     }
 
-    fun getSerie(id:Int) = series[id]
+    fun getSerie(titulo : String) = series.find { serie -> serie.titulo == titulo } ?: Serie()
     fun save(serie: Serie) = series.add(serie)
     fun size() = series.size
     fun delete(serie: Serie)= series.remove(serie)
     fun update(serieActualizada : Serie) : Boolean{
-        val indice = series.indexOfFirst { serieDelaLista -> serieDelaLista.textoTitulo == serieActualizada.textoTitulo }
+        val indice = series.indexOfFirst { serieDelaLista -> serieDelaLista.titulo == serieActualizada.titulo }
         return if (indice != -1) {
             series[indice] = serieActualizada
             true
