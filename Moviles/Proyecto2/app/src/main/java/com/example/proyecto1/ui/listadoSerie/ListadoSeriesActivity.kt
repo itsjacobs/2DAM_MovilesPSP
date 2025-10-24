@@ -11,8 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.proyecto1.R
 import com.example.proyecto1.databinding.ActivityListadoSeriesBinding
 import com.example.proyecto1.domain.modelo.Serie
+import com.example.proyecto1.ui.commons.Constantes
 import com.example.proyecto1.ui.pantallaDetalles.DetalleMainActivity
-import com.example.proyecto1.ui.pantallamain.MainActivity
+import com.example.proyecto1.ui.pantallaAdd.AddActivity
 
 class ListadoSeriesActivity : ComponentActivity() {
     private val viewModel: ListadoSeriesViewModel by viewModels()
@@ -46,15 +47,15 @@ class ListadoSeriesActivity : ComponentActivity() {
             adapter.submitList(state.series)
         }
         binding.AddButton.setOnClickListener {
-            val intent = Intent(this@ListadoSeriesActivity, MainActivity::class.java)
+            val intent = Intent(this@ListadoSeriesActivity, AddActivity::class.java)
             startActivity(intent)
         }
 
     }
 
-    fun irDetalleSerie(Titulo : String){
+    fun irDetalleSerie(titulo : String){
         val intent = Intent(this@ListadoSeriesActivity, DetalleMainActivity::class.java)
-        intent.putExtra("Titulo", Titulo)
+        intent.putExtra(Constantes.TITULO, titulo)
         startActivity(intent)
     }
 

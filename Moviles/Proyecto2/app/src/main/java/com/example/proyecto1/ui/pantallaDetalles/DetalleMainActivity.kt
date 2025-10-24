@@ -14,6 +14,7 @@ import com.example.proyecto1.domain.modelo.Tipo
 import com.example.proyecto1.domain.usecases.ActualizarSerieUsecase
 import com.example.proyecto1.domain.usecases.DeleteSerieUsecase
 import com.example.proyecto1.domain.usecases.GetSeriesUseCase
+import com.example.proyecto1.ui.commons.Constantes
 import com.example.proyecto1.ui.commons.UIEvent
 import com.example.proyecto1.ui.listadoSerie.ListadoSeriesActivity
 import com.google.android.material.snackbar.Snackbar
@@ -36,7 +37,7 @@ class DetalleMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         intent.extras?.let {
-            val titulo = intent.getStringExtra("Titulo") ?: ""
+            val titulo = intent.getStringExtra(Constantes.TITULO) ?: ""
             viewModel.getSeries(titulo)
         }
 
