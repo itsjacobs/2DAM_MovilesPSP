@@ -58,7 +58,4 @@ class ListadoSeriesActivity : ComponentActivity() {
         intent.putExtra(Constantes.TITULO, titulo)
         startActivity(intent)
     }
-
-
-
 }

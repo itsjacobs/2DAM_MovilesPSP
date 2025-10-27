@@ -1,3 +1,4 @@
+
 package com.example.proyecto1.ui.pantallaAdd
 
 import android.content.Intent
@@ -13,7 +14,9 @@ import com.example.proyecto1.databinding.ActivityAddBinding
 
 import com.example.proyecto1.domain.modelo.Serie
 import com.example.proyecto1.domain.modelo.Tipo
+import com.example.proyecto1.ui.commons.UIEvent
 import com.example.proyecto1.ui.listadoSerie.ListadoSeriesActivity
+import com.google.android.material.snackbar.Snackbar
 import kotlin.jvm.java
 
 class AddActivity : AppCompatActivity() {
@@ -38,28 +41,34 @@ class AddActivity : AppCompatActivity() {
         eventos()
         observer()
     }
-    private fun observer(){
-        viewModel.state.observe(this){
-           state ->
+    private fun observer() {
+        viewModel.state.observe(this) { state ->
             binding.tituloSerie.setText(state.serie.titulo)
             binding.genero.setText(state.serie.textoGenero)
             binding.temporadas.setText(state.serie.numeroTemporadas.toString())
             binding.anioEstreno.setText(state.serie.anoEstreno.toString())
             binding.ultimaEmision.setText(state.serie.ultimaEmision)
-            if (state.serie.estadoSerie == Tipo.EnEmision){
+            if (state.serie.estadoSerie == Tipo.EnEmision) {
                 binding.estadoSerie.check(R.id.enEmision)
-            }else if(state.serie.estadoSerie == Tipo.Finalizada){
+            } else if (state.serie.estadoSerie == Tipo.Finalizada) {
                 binding.estadoSerie.check(R.id.finalizada)
-            }else{
+            } else {
                 binding.estadoSerie.check(R.id.proximamente)
             }
             binding.sinopsis.setText(state.serie.textoSinopsis)
             binding.terminos.isChecked = state.serie.isAceptado
+            state.event?.let { event ->
+                when (event) {
+                    is UIEvent.showSnackbar -> {
+                        Snackbar.make(binding.root, event.message, Snackbar.LENGTH_LONG).show()
+                    }
 
-            state.mensaje?.let {
-                mensaje ->
-                Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
-                viewModel.limpiarMensaje()
+                    is UIEvent.Navigate -> {
+                        val intent = Intent(this@AddActivity, ListadoSeriesActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
+                viewModel.limpiarEvento()
             }
         }
     }
@@ -69,8 +78,6 @@ class AddActivity : AppCompatActivity() {
             val tipo: Tipo = checkTipo()
             val serie = addSerie(tipo)
             viewModel.clickGuardarSerie(serie)
-            val intent = Intent(this@AddActivity, ListadoSeriesActivity::class.java)
-            startActivity(intent)
         }
         binding.btnVolver.setOnClickListener {
             val intent = Intent(this@AddActivity, ListadoSeriesActivity::class.java)
@@ -105,4 +112,3 @@ class AddActivity : AppCompatActivity() {
         return serie
     }
 }
-
