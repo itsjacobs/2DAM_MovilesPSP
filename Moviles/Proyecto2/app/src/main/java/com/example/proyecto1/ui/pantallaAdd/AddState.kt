@@ -1,10 +1,10 @@
 package com.example.proyecto1.ui.pantallaAdd
 
 import com.example.proyecto1.domain.modelo.Serie
+import com.example.proyecto1.ui.commons.UIEvent
 
 data class AddState(
     val serie : Serie = Serie(),
-    val botonLimpiar : Boolean = false,
     val botonGuardar : Boolean = false,
-    val mensaje : String? = null
+    val event: UIEvent? = null
 )

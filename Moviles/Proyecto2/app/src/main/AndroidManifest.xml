@@ -25,7 +25,8 @@
         </activity>
         <activity
             android:name=".ui.pantallaAdd.AddActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

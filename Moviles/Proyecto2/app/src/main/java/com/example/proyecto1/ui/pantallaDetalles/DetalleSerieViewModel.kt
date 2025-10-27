@@ -40,7 +40,7 @@ class DetalleSerieViewModel (
                 event = UIEvent.Navigate(Constantes.RUTALISTADO)
             )
         } else {
-            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar(Constantes.ERRORBORRARSERIE))
+            _uiState.value = _uiState.value?.copy(event = UIEvent.Navigate(Constantes.ERRORBORRARSERIE))
         }
     }
 
@@ -51,7 +51,7 @@ class DetalleSerieViewModel (
                 event = UIEvent.Navigate(Constantes.RUTALISTADO)
             )
         } else {
-            _uiState.value = _uiState.value?.copy(event = UIEvent.showSnackbar(Constantes.ERRORACTUALIZARSERIE))
+            _uiState.value = _uiState.value?.copy(event = UIEvent.Navigate(Constantes.ERRORACTUALIZARSERIE))
         }
     }
     fun limpiarEvento() {

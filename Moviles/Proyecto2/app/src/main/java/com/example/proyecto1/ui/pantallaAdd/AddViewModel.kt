@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.proyecto1.domain.modelo.Serie
 import com.example.proyecto1.domain.usecases.AddSerieUsecase
 import com.example.proyecto1.ui.commons.Constantes
+import com.example.proyecto1.ui.commons.UIEvent
 
 class MainViewModel : ViewModel() {
     private val _state : MutableLiveData<AddState> = MutableLiveData()
@@ -20,14 +21,15 @@ class MainViewModel : ViewModel() {
 
     fun clickGuardarSerie(serie: Serie){
         if (AddSerieUsecase().invoke(serie)){
-           _state.value = state.value?.copy(serie, mensaje = Constantes.SERIEADD)
+           _state.value = state.value?.copy(serie, event = UIEvent.Navigate(Constantes.RUTALISTADO))
         }else{
-           _state.value = state.value?.copy(mensaje = Constantes.ERRORSERIEADD)
+           _state.value = state.value?.copy(event = UIEvent.showSnackbar(Constantes.ERRORSERIEADD))
        }
 
     }
-    fun limpiarMensaje() {
-        _state.value = state.value?.copy(mensaje = null)
+
+    fun limpiarEvento() {
+        _state.value = _state.value?.copy(event = null)
     }
 }
 class MainViewModelFactory(

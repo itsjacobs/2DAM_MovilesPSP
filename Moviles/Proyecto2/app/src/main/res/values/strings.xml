@@ -21,6 +21,7 @@
     <string name="listado_de_series">Listado de Series</string>
     <string name="volver">volver</string>
     <string name="detalle_serie">Detalle Serie</string>
+    <string name="boton_de_anadir_serie">Boton de añadir serie</string>
 
 
 </resources>
