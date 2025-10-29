@@ -1,4 +1,4 @@
-package org.httpsproyecto1.Config;
+package org.httpsproyecto1.config;
 
 public class ThymeleafConstants {
 
