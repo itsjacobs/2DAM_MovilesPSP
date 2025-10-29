@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Número</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        h2 {
+            text-align: center;
+            color: #555;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .intentos {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .instructions {
+            text-align: center;
+            color: #666;
+            font-size: 1.15em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            text-align: center;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 18px;
+            border: 3px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1.5em;
+            text-align: center;
+            transition: all 0.3s ease;
+            outline: none;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="number"]:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+            transform: scale(1.02);
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            opacity: 1;
+            height: 40px;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 10px;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Estilos para pantalla de victoria */
+        .victoria {
+            text-align: center;
+        }
+
+        .victoria .icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .victoria h2 {
+            color: #10b981;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            animation: pulse 1s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(16, 185, 129, 0.3);
+        }
+
+        .victoria p {
+            font-size: 1.4em;
+            color: #555;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .victoria p strong {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+        }
+
+        .victoria button {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .victoria button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+        }
+
+        /* Estilos para pantalla de derrota */
+        .derrota {
+            text-align: center;
+        }
+
+        .derrota .icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .derrota h2 {
+            color: #ef4444;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(239, 68, 68, 0.3);
+        }
+
+        .derrota p {
+            font-size: 1.4em;
+            color: #555;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .derrota p strong {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+        }
+
+        .derrota button {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+            box-shadow: 0 5px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .derrota button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .intentos {
+                font-size: 1.2em;
+                padding: 15px;
+            }
+
+            input[type="number"] {
+                font-size: 1.3em;
+                padding: 15px;
+            }
+
+            button {
+                font-size: 1.1em;
+                padding: 15px;
+            }
+
+            .victoria h2,
+            .derrota h2 {
+                font-size: 2em;
+            }
+
+            .victoria .icon,
+            .derrota .icon {
+                font-size: 3.5em;
+            }
+
+            .victoria p,
+            .derrota p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div th:if="${ganado}" class="victoria">
+            <div class="icon">&#127881;</div>
+            <h2>HAS GANADO</h2>
+            <p>Felicidades Adivinaste el numero <strong><span th:text="${numeroSecreto}"></span></strong></p>
+            <form action="index.html" method="get">
+                <button type="submit">Volver</button>
+            </form>
+        </div>
+
+        <div th:if="${perdido}" class="derrota">
+            <div class="icon">&#128148;</div>
+            <h2>HAS PERDIDO</h2>
+            <p>Se te acabaron los intentos. El numero era <strong><span th:text="${numeroSecreto}"></span></strong></p>
+            <form action="index.html" method="get">
+                <button type="submit">Volver</button>
+            </form>
+        </div>
+
+        <div th:if="${!ganado and !perdido}">
+            <h1>Hola <span th:text="${mensaje}">contenido</span></h1>
+            <h2>Adivina el numero</h2>
+
+            <div class="intentos">
+                Intentos restantes: <span th:text="${intentos}">5</span>
+            </div>
+
+            <p class="instructions">Intenta adivinar un numero del 1 al 10</p>
+
+            <form action="PantallaJuego" method="post">
+                <div class="form-group">
+                    <label for="numeroAdivinado">Ingresa tu numero:</label>
+                    <input id="numeroAdivinado" name="numeroAdivinado" type="number" min="1" max="10" required autofocus />
+                </div>
+                <button type="submit">Adivinar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

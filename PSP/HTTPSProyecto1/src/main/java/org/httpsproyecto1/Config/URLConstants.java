@@ -1,20 +1,17 @@
-package org.httpsproyecto1.Config;
+package org.httpsproyecto1.config;
 
 public class URLConstants {
-    // Constructor privado para prevenir instanciación
     private URLConstants() {
         throw new UnsupportedOperationException("Esta es una clase de utilidad");
     }
 
-    // URLs de los servlets
-    public static final String URL_HOLA = "/hola";
-    public static final String URL_ADIVINA = "/adivina";
+    public static final String URL_PANTALLAJUEGO = "/PantallaJuego";
 
-    // Rutas de plantillas Thymeleaf
+
     public static final String TEMPLATE_PREFIX = "/WEB-INF/templates/";
     public static final String TEMPLATE_SUFFIX = ".html";
 
-    // Nombres de plantillas
-    public static final String TEMPLATE_HOLA = "hola";
-    public static final String TEMPLATE_ADIVINA = "adivina";
+
+    public static final String TEMPLATE_PANTALLAJUEGO = "PantallaJuego";
+    public static final String TEMPLATE_ESTADISTICAS = "PantallaEstadisticas";
 }

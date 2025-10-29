@@ -1,4 +1,4 @@
-package org.httpsproyecto1.Config;
+package org.httpsproyecto1.config;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
