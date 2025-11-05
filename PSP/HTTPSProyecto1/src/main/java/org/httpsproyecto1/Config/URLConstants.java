@@ -6,6 +6,7 @@ public class URLConstants {
     }
 
     public static final String URL_PANTALLAJUEGO = "/PantallaJuego";
+    public static final String URL_PANTALLAESTADISTICAS = "/PantallaEstadisticas";
 
 
     public static final String TEMPLATE_PREFIX = "/WEB-INF/templates/";
