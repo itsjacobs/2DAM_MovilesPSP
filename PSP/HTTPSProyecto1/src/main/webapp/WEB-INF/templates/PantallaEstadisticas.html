@@ -161,7 +161,7 @@
                         <td th:text="${partida.nombreJugador}">Nombre</td>
                         <td>
                             <span th:if="${partida.ganado}" class="ganado">GANADA</span>
-                            <span th:else="${partida.ganado}" class="perdido">PERDIDA</span>
+                            <span th:unless="${partida.ganado}" class="perdido">PERDIDA</span>
                         </td>
                         <td>
                             <span class="numero-secreto" th:text="${partida.numeroSecreto}">0</span>

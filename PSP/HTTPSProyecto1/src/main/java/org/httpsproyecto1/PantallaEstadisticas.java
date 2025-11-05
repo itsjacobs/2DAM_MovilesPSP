@@ -5,8 +5,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.httpsproyecto1.config.Constants;
 import org.httpsproyecto1.config.ThymeleafConstants;
-import org.httpsproyecto1.config.URLConstants;
 import org.httpsproyecto1.domain.model.Estadisticas;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -14,7 +14,7 @@ import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import java.io.IOException;
 
-@WebServlet("/PantallaEstadisticas")
+@WebServlet(Constants.URL_PANTALLAESTADISTICAS)
 public class PantallaEstadisticas extends HttpServlet {
 
     @Override
@@ -23,7 +23,7 @@ public class PantallaEstadisticas extends HttpServlet {
         HttpSession session = req.getSession(true);
 
         Estadisticas estadisticas =
-            (Estadisticas) session.getAttribute("estadisticas");
+            (Estadisticas) session.getAttribute(Constants.SESION_ESTADISTICAS);
 
 
         if (estadisticas == null) {
@@ -33,10 +33,10 @@ public class PantallaEstadisticas extends HttpServlet {
         var webExchange = JakartaServletWebApplication.buildApplication(getServletContext()).buildExchange(req, resp);
 
         WebContext ctx = new WebContext(webExchange);
-        ctx.setVariable("partidas", estadisticas.getPartidas());
+        ctx.setVariable(Constants.SESION_PARTIDAS, estadisticas.getPartidas());
 
         resp.setContentType(ThymeleafConstants.CONTENT_TYPE);
         ((TemplateEngine)getServletContext().getAttribute(ThymeleafConstants.TEMPLATE_ENGINE_ATTR))
-                .process(URLConstants.TEMPLATE_ESTADISTICAS, ctx, resp.getWriter());
+                .process(Constants.TEMPLATE_ESTADISTICAS, ctx, resp.getWriter());
     }
 }
