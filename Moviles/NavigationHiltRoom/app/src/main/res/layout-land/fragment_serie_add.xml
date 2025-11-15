@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.pantallaSerie.pantallaAddSerie.SerieAddFragment">
+
+    <!-- Guidelines -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineIzq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineDer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.49" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
+
+    <!-- Toolbar Material 3 -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/colorPrimary"
+        app:title="Añadir Serie"
+        app:titleTextColor="?attr/colorOnPrimary"
+        style="@style/Widget.Material3.Toolbar"
+        app:layout_constraintBottom_toTopOf="@id/guidelineTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- COLUMNA IZQUIERDA -->
+
+    <!-- Título Serie -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tituloSerieLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Título de la Serie"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@id/guideline1"
+        app:layout_constraintEnd_toStartOf="@id/guidelineCentro"
+        app:layout_constraintStart_toStartOf="@id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tituloSerie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Género -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/generoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Género"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        app:layout_constraintEnd_toStartOf="@id/guidelineCentro"
+        app:layout_constraintStart_toStartOf="@id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@id/guideline1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/genero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Temporadas -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/temporadasLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nº Temporadas"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toStartOf="@id/guidelineCentro"
+        app:layout_constraintStart_toStartOf="@id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@id/guideline2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/temporadas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Año Estreno -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/anioEstrenoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Año de Estreno"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@id/guideline4"
+        app:layout_constraintEnd_toStartOf="@id/guidelineCentro"
+        app:layout_constraintStart_toStartOf="@id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@id/guideline3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/anioEstreno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- COLUMNA DERECHA -->
+
+    <!-- Última Emisión -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ultimaEmisionLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Última Emisión"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@id/guideline1"
+        app:layout_constraintEnd_toStartOf="@id/guidelineDer"
+        app:layout_constraintStart_toEndOf="@id/guidelineCentro"
+        app:layout_constraintTop_toTopOf="@id/guidelineTop">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ultimaEmision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Card con RadioGroup Material 3 -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/estadoCard"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        style="@style/Widget.Material3.CardView.Outlined"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        app:layout_constraintEnd_toStartOf="@id/guidelineDer"
+        app:layout_constraintStart_toEndOf="@id/guidelineCentro"
+        app:layout_constraintTop_toTopOf="@id/guideline1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado de la Serie"
+                android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+
+            <RadioGroup
+                android:id="@+id/estadoSerie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/enEmision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="En Emisión" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/finalizada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Finalizada" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/proximamente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Próximamente" />
+            </RadioGroup>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Sinopsis -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sinopsisLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="Sinopsis"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@id/guideline4"
+        app:layout_constraintEnd_toStartOf="@id/guidelineDer"
+        app:layout_constraintStart_toEndOf="@id/guidelineCentro"
+        app:layout_constraintTop_toTopOf="@id/guideline2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sinopsis"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:minLines="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Checkbox Material 3 -->
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/terminos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acepto términos y condiciones"
+        app:layout_constraintBottom_toTopOf="@id/guidelineBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline4" />
+
+    <!-- Botones Material 3 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVolver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGuardar"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/guidelineIzq"
+        app:layout_constraintTop_toTopOf="@id/guidelineBottom"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGuardar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        style="@style/Widget.Material3.Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineDer"
+        app:layout_constraintStart_toEndOf="@id/btnVolver"
+        app:layout_constraintTop_toTopOf="@id/guidelineBottom"
+        app:layout_constraintWidth_percent="0.45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
