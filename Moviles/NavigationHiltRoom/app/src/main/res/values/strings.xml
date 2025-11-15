@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">NavigationHiltRoom</string>
+    <string name="resenyas">Reseñas</string>
+    <string name="series">Series</string>
+    <string name="AddResenya">Añadir Reseña</string>
+    <string name="nombre_de_la_serie">Serie: [Nombre de la serie]</string>
+    <string name="Opinion">Opinión</string>
+    <string name="Calificación">Calificación</string>
+    <string name="una_estrella">Una Estrella</string>
+    <string name="dos_estrellas">Dos Estrellas</string>
+    <string name="tres_estrellas">Tres Estrellas</string>
+    <string name="cuatro_estrellas">Cuatro Estrellas</string>
+    <string name="cinco_estrellas">Cinco Estrellas</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="agregar_resenya">Agregar reseña</string>
+    <string name="no_hay_resenyas">No hay reseñas para esta serie</string>
+    <string name="detalle_de_resenya">Detalle de Reseña</string>
+    <string name="serie_nombre">Serie: [Nombre]</string>
+    <string name="contenido_de_la_resenya">Contenido de la reseña</string>
+    <string name="volver">Volver</string>
+    <string name="borrar">Borrar</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="series_para_rese_ar">Series para Reseñar</string>
+</resources>

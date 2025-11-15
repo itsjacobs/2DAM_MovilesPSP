@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/serieListFragment">
+    <fragment
+        android:id="@+id/serieAddFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaSerie.pantallaAddSerie.SerieAddFragment"
+        android:label="fragment_serie_add"
+        tools:layout="@layout/fragment_serie_add" >
+        <action
+            android:id="@+id/action_serieAddFragment_to_serieListFragment"
+            app:destination="@id/serieListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/serieDetailFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaSerie.pantallaDetailSerie.SerieDetailFragment"
+        android:label="fragment_serie_detail"
+        tools:layout="@layout/fragment_serie_detail" >
+        <action
+            android:id="@+id/action_serieDetailFragment_to_serieListFragment"
+            app:destination="@id/serieListFragment" />
+        <argument
+            android:name="titulo"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/serieListFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaSerie.pantallaListadoSerie.SerieListFragment"
+        android:label="fragment_serie_list"
+        tools:layout="@layout/fragment_serie_list" >
+        <action
+            android:id="@+id/action_serieListFragment_to_serieAddFragment"
+            app:destination="@id/serieAddFragment" />
+        <action
+            android:id="@+id/action_serieListFragment_to_serieDetailFragment"
+            app:destination="@id/serieDetailFragment" />
+        <action
+            android:id="@+id/action_serieListFragment_to_serieFavoritas"
+            app:destination="@id/serieFavoritas" />
+    </fragment>
+    <fragment
+        android:id="@+id/resenyaListSerieFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaResenya.pantallaListSerieResenya.ResenyaListSerieFragment"
+        android:label="fragment_resenya_list_serie"
+        tools:layout="@layout/fragment_resenya_list" >
+        <action
+            android:id="@+id/action_resenyaListSerieFragment_to_resenyaListFragment"
+            app:destination="@id/resenyaListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resenyaListFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaResenya.pantallaListResenya.ResenyaListFragment"
+        android:label="fragment_resenya_list"
+        tools:layout="@layout/fragment_resenya_detail" >
+        <action
+            android:id="@+id/action_resenyaListFragment_to_resenyaAddFragment"
+            app:destination="@id/resenyaAddFragment" />
+        <action
+            android:id="@+id/action_resenyaListFragment_to_resenyaIndividualFragment"
+            app:destination="@id/resenyaIndividualFragment" />
+        <argument
+            android:name="tituloSerie"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resenyaListFragment_to_resenyaListSerieFragment"
+            app:destination="@id/resenyaListSerieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resenyaAddFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaResenya.pantallaAddResenya.ResenyaAddFragment"
+        android:label="fragment_resenya_add"
+        tools:layout="@layout/fragment_resenya_add" >
+        <argument
+            android:name="tituloSerie"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/resenyaIndividualFragment"
+        android:name="com.example.navigationhiltroom.ui.pantallaResenya.pantallaIndividualResenya.ResenyaIndividualFragment"
+        android:label="fragment_resenya_individual"
+        tools:layout="@layout/fragment_resenya_individual" >
+        <action
+            android:id="@+id/action_resenyaIndividualFragment_to_resenyaListFragment"
+            app:destination="@id/resenyaListFragment" />
+        <argument
+            android:name="resenyaId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/serieFavoritas"
+        android:name="com.example.navigationhiltroom.ui.pantallaSerie.pantallaFavoritasSerie.serieFavoritasFragment"
+        android:label="fragment_serie_favoritas"
+        tools:layout="@layout/fragment_serie_favoritas" >
+        <action
+            android:id="@+id/action_serieFavoritas_to_serieListFragment"
+            app:destination="@id/serieListFragment" />
+        <action
+            android:id="@+id/action_serieFavoritas_to_serieDetailFragment"
+            app:destination="@id/serieDetailFragment" />
+    </fragment>
+</navigation>
